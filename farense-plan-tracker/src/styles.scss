@@ -2,3 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    overflow: auto;
+    background-color: rgb(51, 65, 85);
+    color: white;
+}
+
+body::-webkit-scrollbar{
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: #44494D;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #0F172A;
+}
