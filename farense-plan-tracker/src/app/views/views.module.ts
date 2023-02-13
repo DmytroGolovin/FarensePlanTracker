@@ -7,6 +7,7 @@ import { WorkoutComponent } from './workout/workout.component';
 import { NutritionComponent } from './nutrition/nutrition.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedModule } from '../shared/shared.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from '../shared/shared.module';
     HomeComponent,
     WorkoutComponent,
     NutritionComponent,
-    SettingsComponent
+    SettingsComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

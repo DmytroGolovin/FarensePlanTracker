@@ -4,23 +4,31 @@ import { HomeComponent } from './home/home.component';
 import { NutritionComponent } from './nutrition/nutrition.component';
 import { SettingsComponent } from './settings/settings.component';
 import { WorkoutComponent } from './workout/workout.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-  },
-  {
-    path: 'workout',
-    component: WorkoutComponent,
-  },
-  {
-    path: 'nutrition',
-    component: NutritionComponent,
-  },
-  {
-    path: 'settings',
-    component: SettingsComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
+      {
+        path: 'workout',
+        component: WorkoutComponent,
+      },
+      {
+        path: 'nutrition',
+        component: NutritionComponent,
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+      },
+      { path: '**', redirectTo: 'dashboard' }
+    ]
   },
   { path: '**', redirectTo: '' }
 ];

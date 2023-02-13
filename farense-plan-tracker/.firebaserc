@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "farense-plan-tracker": {
+      "hosting": {
+        "farense-plan-tracker": [
+          "farense-plan-tracker"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "farense-plan-tracker"
+  }
+}
