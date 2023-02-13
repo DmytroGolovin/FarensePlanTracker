@@ -1,0 +1,15 @@
+<div class="bg-slate-900 p-8 rounded-lg">
+    <div class="h-48">
+        <img class="h-full w-full rounded-lg" [src]="image" alt="title">
+    </div>
+    <div class="flex justify-between items-center">
+        <div>
+            <h5 class="text-2xl py-2 font-bold">{{ title }}</h5>
+            <p>{{ description }}</p>
+        </div>
+        <button (click)="onCardClick.emit()" class="bg-teal-900 rounded-full py-3 px-6 self-end text-xl font-bold">
+            <i class="fi fi-br-angle-double-right"></i>
+        </button>
+    </div>
+    
+</div>
