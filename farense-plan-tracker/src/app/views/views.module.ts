@@ -8,6 +8,9 @@ import { NutritionComponent } from './nutrition/nutrition.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule } from '@angular/router';
+import { ExerciseCardComponent } from './workout/exercise-card/exercise-card.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 @NgModule({
@@ -16,12 +19,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     WorkoutComponent,
     NutritionComponent,
     SettingsComponent,
-    DashboardComponent
+    DashboardComponent,
+    ExerciseCardComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,
     ViewsRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class ViewsModule { }

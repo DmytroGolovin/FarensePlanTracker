@@ -1,0 +1,16 @@
+<div class="fixed flex justify-center top-4 z-10 inset-x-4">
+  <div *ngIf="currentUser" class="flex gap-4 p-4 bg-slate-900 rounded-full items-center w-full max-w-xl">
+    <img class="w-12 h-12 rounded-full" [src]="currentUser.photoURL" alt="Rounded avatar">
+    <div class="">
+      <h5 class="text-sm text-gray-400">Hello, {{ currentUser.displayName }}!</h5>
+      <h4 class="font-bold">{{ currentDate | date: 'EEEE, MMMM d' }}</h4>
+    </div>
+    <div class="ml-auto relative">
+      <a [routerLink]="['notifications']"
+        class="rounded-full w-12 h-12 flex justify-center items-center hover:bg-slate-700">
+        <i class="fi fi-rr-bell"></i>
+      </a>
+      <span class="absolute bg-red-500 w-2 h-2 rounded-full top-3 right-3.5"></span>
+    </div>
+  </div>
+</div>

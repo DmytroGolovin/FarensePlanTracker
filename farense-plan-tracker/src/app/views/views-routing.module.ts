@@ -5,6 +5,7 @@ import { NutritionComponent } from './nutrition/nutrition.component';
 import { SettingsComponent } from './settings/settings.component';
 import { WorkoutComponent } from './workout/workout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SettingsComponent,
+      },
+      {
+        path: 'notifications',
+        component: NotificationsComponent,
       },
       { path: '**', redirectTo: 'dashboard' }
     ]

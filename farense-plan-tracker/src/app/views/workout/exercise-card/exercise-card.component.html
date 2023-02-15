@@ -1,0 +1,15 @@
+<div class="flex items-center bg-slate-800 rounded-lg px-3 cursor-pointer" (click)="onCardClick()">
+  <div class="w-1/4">
+    <img [src]="image" [alt]="title">
+  </div>
+  <div class="px-2">
+    <h5 class="font-bold text-lg">{{ title }}</h5>
+    <div class="flex gap-2 items-center text-gray-400 text-sm">
+      <p>{{ sets }} Sets</p>
+      <p>{{ reps }} Reps</p>
+    </div>
+  </div>
+  <div class="text-gray-400 ml-auto">
+    <i class="fi fi-rr-angle-right"></i>
+  </div>
+</div>
