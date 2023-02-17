@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { ExerciseCardComponent } from './workout/exercise-card/exercise-card.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { ExerciseComponent } from './exercise/exercise.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     SettingsComponent,
     DashboardComponent,
     ExerciseCardComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    ExerciseComponent
   ],
   imports: [
     CommonModule,

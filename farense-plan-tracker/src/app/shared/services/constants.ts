@@ -27,6 +27,9 @@ export abstract class Constants {
     workout: {
       root: 'app/workout'
     },
+    exercise: {
+      root: 'app/exercise'
+    },
     nutrition: {
       root: 'app/nutrition'
     },

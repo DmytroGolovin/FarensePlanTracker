@@ -6,6 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { WorkoutComponent } from './workout/workout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { ExerciseComponent } from './exercise/exercise.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'workout',
         component: WorkoutComponent,
+      },
+      {
+        path: 'exerecise',
+        component: ExerciseComponent,
       },
       {
         path: 'nutrition',
