@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./exercise.component.scss']
 })
 export class ExerciseComponent {
+  public completedSetList: Array<any> = [{}]
 
+  public addNewSet(){
+    this.completedSetList.push({});
+  }
 }

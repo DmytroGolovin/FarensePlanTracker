@@ -6,7 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { WorkoutComponent } from './workout/workout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { ExerciseComponent } from './exercise/exercise.component';
+import { ExerciseComponent } from './workout/exercise/exercise.component';
 
 const routes: Routes = [
   {
@@ -18,12 +18,12 @@ const routes: Routes = [
         component: DashboardComponent,
       },
       {
-        path: 'workout',
-        component: WorkoutComponent,
+        path: 'exercise',
+        component: ExerciseComponent,
       },
       {
-        path: 'exerecise',
-        component: ExerciseComponent,
+        path: 'workout',
+        component: WorkoutComponent,
       },
       {
         path: 'nutrition',

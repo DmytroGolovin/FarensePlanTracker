@@ -1,0 +1,57 @@
+<div class="w-full h-48 ">
+  <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+  </iframe>
+</div>
+
+<div class="flex py-4 justify-between">
+  <div class="flex items-center gap-2">
+    <div class="bg-slate-800 rounded-lg w-10 h-10 flex items-center justify-center">
+      <i class="fi fi-rr-arrows-repeat"></i>
+    </div>
+    <div>
+      <p>5</p>
+      <p class="text-sm text-gray-400">Sets</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <div class="bg-slate-800 rounded-lg w-10 h-10 flex items-center justify-center">
+      <i class="fi fi-rr-gym"></i>
+    </div>
+    <div>
+      <p>6-8</p>
+      <p class="text-sm text-gray-400">Reps</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <div class="bg-slate-800 rounded-lg w-10 h-10 flex items-center justify-center">
+      <i class="fi fi-rr-hourglass-end"></i>
+    </div>
+    <div>
+      <p>1m 30s</p>
+      <p class="text-sm text-gray-400">Rest time</p>
+    </div>
+  </div>
+</div>
+
+<div class="py-3">
+  <h5 class="font-bold text-gray-400">{{ 'Note' | uppercase }}</h5>
+  <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna
+    aliqua.</p>
+</div>
+
+<div class="py-3">
+  <h5 class="font-bold text-gray-400">{{ 'Sets' | uppercase }}</h5>
+  <div class="flex flex-col items-center py-2 gap-2">
+    <div class="w-full rounded-lg py-6 px-4 h-4 bg-slate-800 flex items-center" *ngFor="let set of completedSetList">
+      Weight
+      <input type="text" class="bg-red w-min">
+    </div>
+    <div class="bg-slate-800 rounded-lg w-10 h-10 flex items-center justify-center hover:bg-slate-900"
+      (click)="addNewSet()">
+      <i class="fi fi-rr-plus"></i>
+    </div>
+  </div>
+</div>

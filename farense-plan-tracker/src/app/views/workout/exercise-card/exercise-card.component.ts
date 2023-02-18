@@ -12,11 +12,6 @@ export class ExerciseCardComponent {
   @Input() public title: string = "Core exercise";
   @Input() public sets: number = 5;
   @Input() public reps: number = 10;
-  @Input() public route: string = "exercise";
 
   constructor(private _router: Router) {}
-
-  public onCardClick() {
-    this._router.navigateByUrl(Constants.clientRoutes.dashboard.root + {id: this.title })
-  }
 }
