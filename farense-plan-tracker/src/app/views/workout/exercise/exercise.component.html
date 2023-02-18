@@ -1,5 +1,5 @@
 <div class="w-full h-48 ">
-  <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+  <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/VmB1G1K7v94">
   </iframe>
 </div>
 
@@ -36,22 +36,50 @@
 </div>
 
 <div class="py-3">
-  <h5 class="font-bold text-gray-400">{{ 'Note' | uppercase }}</h5>
+  <h5 class="font-bold">{{ 'Note' | uppercase }}</h5>
   <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
     dolore magna
     aliqua.</p>
 </div>
 
 <div class="py-3">
-  <h5 class="font-bold text-gray-400">{{ 'Sets' | uppercase }}</h5>
-  <div class="flex flex-col items-center py-2 gap-2">
-    <div class="w-full rounded-lg py-6 px-4 h-4 bg-slate-800 flex items-center" *ngFor="let set of completedSetList">
-      Weight
-      <input type="text" class="bg-red w-min">
+  <div class="flex items-center justify-between">
+    <h5 class="font-bold">{{ 'Sets' | uppercase }}</h5>
+    <button class="bg-slate-800 rounded-lg px-4 py-2 flex items-center justify-center cursor-pointer"
+      *ngIf="setsForm.dirty">
+      <i class="fi fi-rr-disk"></i>
+    </button>
+  </div>
+
+  <form class="flex flex-col items-center py-2 gap-2" #setsForm="ngForm">
+    <div *ngFor="let set of completedSetList; let i = index">
+      <h5 class="text-sm font-bold text-gray-400">Set {{ i + 1 }}</h5>
+      <div class="flex gap-2 items-center">
+        <div class="w-full rounded-lg p-2 bg-slate-800 flex items-center gap-2">
+          <div class="border-2 border-slate-700 rounded-lg py-2 px-4 focus-within:border-slate-600">
+            <input type="number" class="bg-transparent outline-none w-full" placeholder="Weight (kg)"
+              [(ngModel)]="set.weight" [name]="'weight'+ i">
+          </div>
+          <div class="border-2 border-slate-700 rounded-lg py-2 px-4 focus-within:border-slate-600">
+            <input type="number" class="bg-transparent outline-none w-full" placeholder="Reps" [(ngModel)]="set.reps"
+              [name]="'reps'+ i">
+          </div>
+          <div class="border-2 border-slate-700 rounded-lg py-2 px-4 focus-within:border-slate-600">
+            <input type="number" class="bg-transparent outline-none w-full" placeholder="RIR" [(ngModel)]="set.rir"
+              [name]="'rir'+ i">
+          </div>
+        </div>
+
+        <button class="bg-slate-800 rounded-lg w-14 h-14 flex items-center justify-center cursor-pointer"
+          *ngIf="completedSetList.length > 1" (click)="removeSet(i)">
+          <i class="fi fi-rr-trash text-lg"></i>
+        </button>
+      </div>
     </div>
+
     <div class="bg-slate-800 rounded-lg w-10 h-10 flex items-center justify-center hover:bg-slate-900"
       (click)="addNewSet()">
       <i class="fi fi-rr-plus"></i>
     </div>
-  </div>
+  </form>
 </div>

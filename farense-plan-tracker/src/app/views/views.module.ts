@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { ExerciseCardComponent } from './workout/exercise-card/exercise-card.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ExerciseComponent } from './workout/exercise/exercise.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ExerciseComponent } from './workout/exercise/exercise.component';
     CommonModule,
     ViewsRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class ViewsModule { }
