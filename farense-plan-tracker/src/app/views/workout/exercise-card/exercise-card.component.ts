@@ -10,8 +10,8 @@ import { Constants } from 'src/app/shared/services/constants';
 export class ExerciseCardComponent {
   @Input() public image: string = "assets/icons/dumbbell.png";
   @Input() public title: string = "Core exercise";
-  @Input() public sets: number = 5;
-  @Input() public reps: number = 10;
+  @Input() public sets: string = "5";
+  @Input() public reps: string = "10";
 
   constructor(private _router: Router) {}
 }

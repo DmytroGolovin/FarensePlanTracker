@@ -13,6 +13,7 @@ import { ExerciseCardComponent } from './workout/exercise-card/exercise-card.com
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ExerciseComponent } from './workout/exercise/exercise.component';
 import { FormsModule } from '@angular/forms';
+import { ExercisesResolver } from '../shared/resolvers/exercises.resolver';
 
 
 @NgModule({
@@ -32,6 +33,9 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     RouterModule,
     FormsModule
+  ],
+  providers: [
+    ExercisesResolver
   ]
 })
 export class ViewsModule { }

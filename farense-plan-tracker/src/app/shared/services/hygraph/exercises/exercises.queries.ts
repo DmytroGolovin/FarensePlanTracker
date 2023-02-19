@@ -5,17 +5,21 @@ const GET_EXERCISES = gql`
     exercises (stage: DRAFT) {
       id
       name
-      description
+      note
+      sets
+      reps
+      restTime
+      videoUrl
     }
   }
 `;
 
 const ADD_EXERCISE = gql`
-  mutation addExercise($name: String!, $description: String!) {
-    addExercise(name: $name, description: $description) {
+  mutation addExercise($name: String!, $note: String!) {
+    addExercise(name: $name, note: $note) {
       id
       name
-      description
+      note
     }
   }
 `;

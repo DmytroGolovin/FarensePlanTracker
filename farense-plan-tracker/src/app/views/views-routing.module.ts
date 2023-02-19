@@ -7,6 +7,7 @@ import { WorkoutComponent } from './workout/workout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ExerciseComponent } from './workout/exercise/exercise.component';
+import { ExercisesResolver } from '../shared/resolvers/exercises.resolver';
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
       {
         path: 'workout',
         component: WorkoutComponent,
+        resolve: {
+          workoutData: ExercisesResolver
+        },
       },
       {
         path: 'nutrition',
