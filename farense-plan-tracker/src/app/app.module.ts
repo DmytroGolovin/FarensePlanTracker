@@ -7,6 +7,8 @@ import { SharedModule } from './shared/shared.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AppRoutingModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule, // auth
+    AngularFireAuthModule,
+    GraphQLModule,
+    HttpClientModule, // auth
   ],
   providers: [],
   bootstrap: [AppComponent]
