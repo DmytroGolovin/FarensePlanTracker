@@ -23,9 +23,22 @@ query getUserWorkouts($clientId: String!){
     description
     weekDay
   }
-}
-`;
+}`;
 
+const GET_USER_WORKOUTS_BY_WEEK_DAY = gql`
+query getUserWorkoutsByDay($clientEmail: String!, $weekDay: WeekDays!){
+  workouts (
+    stage: DRAFT
+    where: {
+      clients_some: { email: $clientEmail }
+      weekDay: $weekDay
+    })
+  {
+    id
+    title
+    weekDay
+  }
+}`;
 
 const ADD_WORKOUT = gql`
   mutation addExercise($name: String!, $description: String!) {
@@ -35,7 +48,7 @@ const ADD_WORKOUT = gql`
       description
     }
   }
-`
+`;
 
 const DELETE_WORKOUT = gql`
   mutation deleteExercise($id: Int!) {
@@ -43,6 +56,6 @@ const DELETE_WORKOUT = gql`
       id
     }
   }
-  `
+`;
 
-export {GET_USER_WORKOUTS, ADD_WORKOUT, DELETE_WORKOUT}
+export {GET_USER_WORKOUTS, GET_USER_WORKOUTS_BY_WEEK_DAY, ADD_WORKOUT, DELETE_WORKOUT}

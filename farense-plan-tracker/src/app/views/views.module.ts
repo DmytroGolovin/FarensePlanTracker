@@ -14,6 +14,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ExerciseComponent } from './workout/exercise/exercise.component';
 import { FormsModule } from '@angular/forms';
 import { ExercisesResolver } from '../shared/resolvers/exercises.resolver';
+import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
+import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { ExercisesResolver } from '../shared/resolvers/exercises.resolver';
     FormsModule
   ],
   providers: [
-    ExercisesResolver
+    ExercisesResolver,
+    DashboardResolver,
+    WorkoutResolver
   ]
 })
 export class ViewsModule { }

@@ -8,6 +8,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ExerciseComponent } from './workout/exercise/exercise.component';
 import { ExercisesResolver } from '../shared/resolvers/exercises.resolver';
+import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
+import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 
 const routes: Routes = [
   {
@@ -17,16 +19,19 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+        resolve: {
+          dashboardData: DashboardResolver
+        },
       },
       {
         path: 'exercise',
         component: ExerciseComponent,
       },
       {
-        path: 'workout',
+        path: 'workout/:id',
         component: WorkoutComponent,
         resolve: {
-          workoutData: ExercisesResolver
+          workoutData: WorkoutResolver
         },
       },
       {

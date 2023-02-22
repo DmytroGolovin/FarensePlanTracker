@@ -64,7 +64,7 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(loggedUser));
   }
 
-  public getCurrentUser(){
+  public getCurrentUser(): UserModel | null {
     let userString = localStorage.getItem('currentUser');
     if(userString){
       let user: UserModel = JSON.parse(userString as string)

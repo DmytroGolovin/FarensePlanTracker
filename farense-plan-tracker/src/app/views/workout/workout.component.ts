@@ -13,11 +13,12 @@ export class WorkoutComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute){
   }
+
   ngOnInit(): void {
     this._route.data.subscribe( data => {
       const res = data['workoutData'];
       if(!res.data.error) {
-        this.exercises = res.data.exercises;
+        this.exercises = res.data?.workout?.workoutExercises;
       } else {
         console.log(res.data.error);
       }

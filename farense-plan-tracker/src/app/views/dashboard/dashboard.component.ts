@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { WorkoutModel } from 'src/app/shared/models/entities/workout.model';
 import { UserModel } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { Constants } from 'src/app/shared/services/constants';
@@ -10,11 +11,22 @@ import { Constants } from 'src/app/shared/services/constants';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  public currentUser: UserModel | null = null;
-  public currentDate: Date = new Date();
+  public todaysWorkout: WorkoutModel | null = null;
+  constructor(private _router: Router, private _route: ActivatedRoute){
+  }
 
-  constructor(private _authService: AuthService, private _router: Router){
-    this.currentUser = this._authService.getCurrentUser();
+  ngOnInit(): void {
+    this._route.data.subscribe( data => {
+      const res = data['dashboardData'];
+      if(!res.data.error) {
+        console.log(res);
+        this.todaysWorkout = res.data?.workouts.length > 0
+          ? res.data?.workouts[0]
+          : null;
+      } else {
+        console.log(res.data.error);
+      }
+    });
   }
 
   public navigateToNotifications(){
@@ -22,7 +34,7 @@ export class DashboardComponent {
   }
 
   public navigateToWorkout(){
-    this.navigateTo(Constants.clientRoutes.workout.root);
+    this.navigateTo(Constants.clientRoutes.workout.root + '/' + this.todaysWorkout?.id);
   }
 
   public navigateToNutrition(){

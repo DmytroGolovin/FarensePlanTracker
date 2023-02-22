@@ -1,6 +1,6 @@
 <div class="flex justify-center py-4">
   <div class="flex flex-col gap-3 w-full">
-    <app-card title="Chest and bicep" category="Workout" image="assets/icons/calendar.png"
+    <app-card *ngIf="todaysWorkout" [title]="todaysWorkout.title" category="Workout" image="assets/icons/calendar.png"
       (onCardClick)="navigateToWorkout()"></app-card>
     <app-card title="Register your calories" category="Diet" image="assets/icons/calories.png"
       (onCardClick)="navigateToNutrition()"></app-card>
