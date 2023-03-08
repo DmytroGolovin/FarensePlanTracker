@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ExerciseModel } from 'src/app/shared/models/entities/exercise.model';
-import { ExercisesService } from 'src/app/shared/services/hygraph/exercises/exercises.service';
+import { WorkoutExerciseModel } from 'src/app/shared/models/entities/workout-exercise.model';
 
 @Component({
   selector: 'app-workout',
@@ -9,7 +8,7 @@ import { ExercisesService } from 'src/app/shared/services/hygraph/exercises/exer
   styleUrls: ['./workout.component.scss']
 })
 export class WorkoutComponent implements OnInit {
-  public exercises: Array<ExerciseModel> = [];
+  public exercises: Array<WorkoutExerciseModel> = [];
 
   constructor(private _route: ActivatedRoute){
   }

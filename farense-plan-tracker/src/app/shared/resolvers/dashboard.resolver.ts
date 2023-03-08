@@ -1,18 +1,21 @@
 import { Injectable } from "@angular/core";
 import { Resolve, Router } from "@angular/router";
 import { ApolloQueryResult } from "@apollo/client/core";
-import { Observable, of } from "rxjs";
-import { WorkoutsService } from "../services/hygraph/workouts/workouts.service";
+import { Observable, catchError, of } from "rxjs";
 import { WorkoutModel } from "../models/entities/workout.model";
 import { AuthService } from "../services/auth/auth.service";
 import DateHelper from "../helpers/date.helper";
+import { PlanWorkoutModel } from "../models/entities/plan-workout.model";
+import { ClientsService } from "../services/hygraph/clients/clients.service";
+import { ClientModel } from "../models/entities/client.model";
 
 @Injectable()
 export class DashboardResolver implements Resolve<Observable<ApolloQueryResult<WorkoutModel> | any>>{
 
-    constructor(private _workoutsService: WorkoutsService, private _authService: AuthService, private _router: Router) {}
+    constructor(private _authService: AuthService,
+      private _clientService: ClientsService, private _router: Router) {}
 
-    resolve(): Observable<ApolloQueryResult<WorkoutModel> | any> {
+    resolve(): Observable<PlanWorkoutModel | any> {
       const user = this._authService.getCurrentUser();
 
       if(!user) {
@@ -20,9 +23,10 @@ export class DashboardResolver implements Resolve<Observable<ApolloQueryResult<W
         return of(null);
       }
 
-      const currentDate = new Date();
-      const currentDayOfTheWeek = DateHelper.getDayOfWeekString(currentDate.getDay());
-
-      return this._workoutsService.getUserWorkoutsByWeekDay(user, currentDayOfTheWeek);
+      return this._clientService.getClientByEmail(user.email).pipe(
+        catchError(error => {
+          return of("No Data");
+        })
+      );
     }
 }

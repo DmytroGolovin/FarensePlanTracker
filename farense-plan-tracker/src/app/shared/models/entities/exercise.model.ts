@@ -1,9 +1,7 @@
 export interface ExerciseModel {
   id: string;
   name: string;
-  sets: string;
-  reps: string;
-  restTime: string;
-  note?: string;
+  category: string;
+  description?: string;
   videoUrl?: string;
 }

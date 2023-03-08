@@ -6,7 +6,7 @@
     <h5>{{ category }}</h5>
     <h3 class="text-2xl font-semibold">{{ title }}</h3>
   </div>
-  <div class="text-gray-400 ml-auto">
+  <div *ngIf="onCardClick.observed" class="text-gray-400 ml-auto">
     <i class="fi fi-rr-angle-right"></i>
   </div>
 </div>
