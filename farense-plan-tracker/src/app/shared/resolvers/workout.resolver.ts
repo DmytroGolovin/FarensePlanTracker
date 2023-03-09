@@ -1,18 +1,19 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
 import { Observable } from "rxjs";
-import { ExercisesService } from "../services/hygraph/exercises/exercises.service";
-import { ExerciseModel } from "../models/entities/exercise.model";
 import { ApolloQueryResult } from "@apollo/client/core";
+import { ResultModel } from "../models/result.model";
+import { WorkoutModel } from "../models/entities/workout.model";
+import { WorkoutsService } from "../services/hygraph/workouts/workouts.service";
 
 @Injectable()
-export class WorkoutResolver implements Resolve<Observable<ApolloQueryResult<ExerciseModel>>>{
+export class WorkoutResolver implements Resolve<Observable<ApolloQueryResult<ResultModel<WorkoutModel>>>>{
 
-    constructor(private _exercisesService: ExercisesService) {}
+    constructor(private _workoutService: WorkoutsService) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<ApolloQueryResult<ExerciseModel>> {
-      console.log(route)
+    resolve(route: ActivatedRouteSnapshot): Observable<ApolloQueryResult<ResultModel<WorkoutModel>>> {
       const workoutId = route.params['id'];
-      return this._exercisesService.getWorkoutExercises(workoutId);
+      console.log(workoutId)
+      return this._workoutService.getWorkoutExercisesById(workoutId);
     }
 }

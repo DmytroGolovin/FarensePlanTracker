@@ -8,11 +8,10 @@ query getPlanByUser($userEmail: String!){
   ) {
     name
     plan {
-      id
       workouts {
-        id
         weekDay
         workout {
+          id
           title
         }
       }

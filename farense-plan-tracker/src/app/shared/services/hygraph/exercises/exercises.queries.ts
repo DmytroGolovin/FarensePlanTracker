@@ -20,13 +20,14 @@ query getWorkoutExercises($workoutId: ID!){
     stage: DRAFT
     where: {id: $workoutId }
   ) {
-    workoutExercises{
-      name
-      note
+    title
+    exercises {
       sets
       reps
       restTime
-      videoUrl
+      exercise {
+        name
+      }
     }
   }
 }

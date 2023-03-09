@@ -4,10 +4,8 @@ import { ApolloQueryResult } from "@apollo/client/core";
 import { Observable, catchError, of } from "rxjs";
 import { WorkoutModel } from "../models/entities/workout.model";
 import { AuthService } from "../services/auth/auth.service";
-import DateHelper from "../helpers/date.helper";
 import { PlanWorkoutModel } from "../models/entities/plan-workout.model";
 import { ClientsService } from "../services/hygraph/clients/clients.service";
-import { ClientModel } from "../models/entities/client.model";
 
 @Injectable()
 export class DashboardResolver implements Resolve<Observable<ApolloQueryResult<WorkoutModel> | any>>{

@@ -10,6 +10,25 @@ const GET_WORKOUTS = gql`
   }
 `;
 
+const GET_WORKOUT_EXERCISES_BY_ID = gql`
+query getWorkoutExercisesById($workoutId: ID!){
+  workout (
+    stage: DRAFT
+    where: {id: $workoutId }
+  ) {
+    title
+    exercises {
+      sets
+      reps
+      restTime
+      exercise {
+        name
+      }
+    }
+  }
+}
+`;
+
 const GET_USER_WORKOUTS = gql`
 query getUserWorkouts($clientId: String!){
   workouts (
@@ -58,4 +77,4 @@ const DELETE_WORKOUT = gql`
   }
 `;
 
-export {GET_USER_WORKOUTS, GET_USER_WORKOUTS_BY_WEEK_DAY, ADD_WORKOUT, DELETE_WORKOUT}
+export {GET_WORKOUT_EXERCISES_BY_ID}

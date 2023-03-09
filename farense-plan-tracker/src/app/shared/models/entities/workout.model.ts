@@ -5,5 +5,5 @@ export interface WorkoutModel {
   title: string;
   description?: string;
   objectives?: string;
-  exercises: WorkoutExerciseModel;
+  exercises: Array<WorkoutExerciseModel>;
 }

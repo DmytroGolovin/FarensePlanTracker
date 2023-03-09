@@ -32,6 +32,7 @@ export class DashboardComponent {
       const currentWeekDay = DateHelper.getDayOfWeekString(currentDate.getDay());
 
       this.todaysWorkout = currentClient?.plan?.workouts.find(x => x.weekDay == currentWeekDay);
+      console.log("Workout:", this.todaysWorkout)
     });
   }
 
@@ -40,7 +41,7 @@ export class DashboardComponent {
   }
 
   public navigateToWorkout(){
-    this.navigateTo(Constants.clientRoutes.workout.root + '/' + this.todaysWorkout?.id);
+    this.navigateTo(Constants.clientRoutes.workout.root + '/' + this.todaysWorkout?.workout?.id);
   }
 
   public navigateToNutrition(){
