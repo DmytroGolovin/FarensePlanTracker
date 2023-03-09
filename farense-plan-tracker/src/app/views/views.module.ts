@@ -13,7 +13,7 @@ import { ExerciseCardComponent } from './workout/exercise-card/exercise-card.com
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ExerciseComponent } from './workout/exercise/exercise.component';
 import { FormsModule } from '@angular/forms';
-import { ExercisesResolver } from '../shared/resolvers/exercises.resolver';
+import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
 import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 
@@ -37,7 +37,7 @@ import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
     FormsModule
   ],
   providers: [
-    ExercisesResolver,
+    ExerciseResolver,
     DashboardResolver,
     WorkoutResolver
   ]

@@ -7,7 +7,7 @@ import { WorkoutComponent } from './workout/workout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ExerciseComponent } from './workout/exercise/exercise.component';
-import { ExercisesResolver } from '../shared/resolvers/exercises.resolver';
+import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
 import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 
@@ -24,8 +24,11 @@ const routes: Routes = [
         },
       },
       {
-        path: 'exercise',
+        path: 'exercise/:id',
         component: ExerciseComponent,
+        resolve: {
+          exerciseData: ExerciseResolver
+        },
       },
       {
         path: 'workout/:id',

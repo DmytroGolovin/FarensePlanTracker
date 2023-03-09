@@ -17,16 +17,16 @@ export class WorkoutComponent implements OnInit {
   ngOnInit(): void {
     this._route.data.subscribe( (res: any) => {
 
-      const dashData = res.workoutData;
+      const workoutData = res.workoutData;
 
-      if(!dashData || dashData.error){
+      if(!workoutData || workoutData.error){
        return;
       }
 
-      const currentWorkout: WorkoutModel = dashData.data['workout'];
+      const currentWorkout: WorkoutModel = workoutData.data['workout'];
 
       if(currentWorkout) {
-        this.exercises = currentWorkout.exercises;
+        this.exercises = currentWorkout.workoutExercises;
       }
     });
   }

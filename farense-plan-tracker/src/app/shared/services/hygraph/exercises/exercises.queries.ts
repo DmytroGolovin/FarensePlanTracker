@@ -33,6 +33,25 @@ query getWorkoutExercises($workoutId: ID!){
 }
 `;
 
+const GET_WORKOUT_EXERCISE_BY_ID = gql`
+query getWorkoutExercises($exerciseId: ID!){
+  workoutExercise (
+    stage: DRAFT
+    where: {id: $exerciseId }
+  ) {
+    name
+    sets
+    reps
+    restTime
+    notes
+    exercise {
+      name
+      videoUrl
+    }
+  }
+}
+`;
+
 const ADD_EXERCISE = gql`
   mutation addExercise($name: String!, $note: String!) {
     addExercise(name: $name, note: $note) {
@@ -51,4 +70,4 @@ const DELETE_EXERCISE = gql`
   }
 `;
 
-export {GET_EXERCISES, GET_WORKOUT_EXERCISES, ADD_EXERCISE, DELETE_EXERCISE}
+export { GET_WORKOUT_EXERCISES, GET_WORKOUT_EXERCISE_BY_ID}

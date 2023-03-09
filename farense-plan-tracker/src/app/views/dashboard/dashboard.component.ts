@@ -32,7 +32,6 @@ export class DashboardComponent {
       const currentWeekDay = DateHelper.getDayOfWeekString(currentDate.getDay());
 
       this.todaysWorkout = currentClient?.plan?.workouts.find(x => x.weekDay == currentWeekDay);
-      console.log("Workout:", this.todaysWorkout)
     });
   }
 

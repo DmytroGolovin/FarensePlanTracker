@@ -1,5 +1,9 @@
-<div class="w-full h-48 ">
-  <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/VmB1G1K7v94">
+<div class="py-3">
+  <h5 class="font-bold">{{ currentExercise?.exercise?.name | uppercase }}</h5>
+</div>
+
+<div class="w-full h-48">
+  <iframe allow="fullscreen;" class="w-full h-full rounded-lg" [src]="getVideoUrl()">
   </iframe>
 </div>
 
@@ -9,7 +13,7 @@
       <i class="fi fi-rr-arrows-repeat"></i>
     </div>
     <div>
-      <p>5</p>
+      <p>{{ currentExercise?.sets }}</p>
       <p class="text-sm text-gray-400">Sets</p>
     </div>
   </div>
@@ -19,7 +23,7 @@
       <i class="fi fi-rr-gym"></i>
     </div>
     <div>
-      <p>6-8</p>
+      <p>{{ currentExercise?.reps }}</p>
       <p class="text-sm text-gray-400">Reps</p>
     </div>
   </div>
@@ -29,17 +33,15 @@
       <i class="fi fi-rr-hourglass-end"></i>
     </div>
     <div>
-      <p>1m 30s</p>
+      <p>{{ currentExercise?.restTime }}</p>
       <p class="text-sm text-gray-400">Rest time</p>
     </div>
   </div>
 </div>
 
-<div class="py-3">
+<div class="py-3" *ngIf="currentExercise?.notes">
   <h5 class="font-bold">{{ 'Note' | uppercase }}</h5>
-  <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-    dolore magna
-    aliqua.</p>
+  <p class="mt-2">{{ currentExercise?.notes }}</p>
 </div>
 
 <div class="py-3">

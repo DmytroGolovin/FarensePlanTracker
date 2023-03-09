@@ -17,7 +17,8 @@ query getWorkoutExercisesById($workoutId: ID!){
     where: {id: $workoutId }
   ) {
     title
-    exercises {
+    workoutExercises {
+      id
       sets
       reps
       restTime

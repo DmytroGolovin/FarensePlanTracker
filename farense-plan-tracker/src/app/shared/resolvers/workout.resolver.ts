@@ -13,7 +13,6 @@ export class WorkoutResolver implements Resolve<Observable<ApolloQueryResult<Res
 
     resolve(route: ActivatedRouteSnapshot): Observable<ApolloQueryResult<ResultModel<WorkoutModel>>> {
       const workoutId = route.params['id'];
-      console.log(workoutId)
       return this._workoutService.getWorkoutExercisesById(workoutId);
     }
 }
