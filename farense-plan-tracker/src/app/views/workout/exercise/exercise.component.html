@@ -2,9 +2,8 @@
   <h5 class="font-bold">{{ currentExercise?.exercise?.name | uppercase }}</h5>
 </div>
 
-<div class="w-full h-48">
-  <iframe allow="fullscreen;" class="w-full h-full rounded-lg" [src]="getVideoUrl()">
-  </iframe>
+<div class="w-full h-48" *ngIf="getVideoId()">
+  <youtube-player [videoId]="getVideoId()" class="w-full h-full rounded-lg"></youtube-player>
 </div>
 
 <div class="flex py-4 justify-between">

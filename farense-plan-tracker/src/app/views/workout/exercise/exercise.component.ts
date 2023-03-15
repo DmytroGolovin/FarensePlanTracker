@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import YoutubeHelper from 'src/app/shared/helpers/youtube.helper';
 import { SetModel } from 'src/app/shared/models/entities/set.model';
 import { WorkoutExerciseModel } from 'src/app/shared/models/entities/workout-exercise.model';
 
@@ -14,6 +15,7 @@ export class ExerciseComponent implements OnInit {
     order: 0
   }];
   public currentExercise: WorkoutExerciseModel | undefined = undefined;
+  private apiLoaded: boolean = false;
 
   constructor(private _route: ActivatedRoute, private _sanitizer: DomSanitizer){}
 
@@ -28,15 +30,19 @@ export class ExerciseComponent implements OnInit {
 
       this.currentExercise = exerciseData.data['workoutExercise'];
     });
+
+    if (!this.apiLoaded) {
+      // This code loads the IFrame Player API code asynchronously, according to the instructions at
+      // https://developers.google.com/youtube/iframe_api_reference#Getting_Started
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      this.apiLoaded = true;
+    }
   }
 
-  public getVideoUrl(){
-    const videoUrl = this.currentExercise?.exercise?.videoUrl;
-    if(videoUrl) {
-      return this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
-    }
-
-    return null;
+  public getVideoId(){
+    return YoutubeHelper.getVideoId(this.currentExercise?.exercise?.videoUrl);
   }
 
   public addNewSet(){

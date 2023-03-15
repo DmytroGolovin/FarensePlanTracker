@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
 import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
+import { PlanComponent } from './plan/plan.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 @NgModule({
@@ -28,13 +30,15 @@ import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
     ExerciseCardComponent,
     NotificationsComponent,
     ExerciseComponent,
+    PlanComponent,
   ],
   imports: [
     CommonModule,
     ViewsRoutingModule,
     SharedModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    YouTubePlayerModule
   ],
   providers: [
     ExerciseResolver,

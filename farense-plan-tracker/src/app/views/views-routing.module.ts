@@ -10,6 +10,7 @@ import { ExerciseComponent } from './workout/exercise/exercise.component';
 import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
 import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
+import { PlanComponent } from './plan/plan.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,13 @@ const routes: Routes = [
         resolve: {
           dashboardData: DashboardResolver
         },
+      },
+      {
+        path: 'plan',
+        component: PlanComponent,
+        // resolve: {
+        //   dashboardData: DashboardResolver
+        // },
       },
       {
         path: 'exercise/:id',
