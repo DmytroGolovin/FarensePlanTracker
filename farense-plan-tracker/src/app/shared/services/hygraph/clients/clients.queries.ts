@@ -1,7 +1,7 @@
 import {gql} from 'apollo-angular'
 
 const GET_CLIENT_BY_EMAIL = gql`
-query getPlanByUser($userEmail: String!){
+query getClientByEmail($userEmail: String!){
   client (
     stage: DRAFT
     where: { email: $userEmail }

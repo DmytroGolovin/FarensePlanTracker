@@ -1,1 +1,6 @@
-<p>plan works!</p>
+<div class="flex justify-center">
+  <div class="flex flex-col gap-3 w-full max-w-xl" *ngIf="workouts && workouts.length > 0">
+    <app-workout-card [workoutId]="workout.workout.id" [title]="workout.workout.title" [subtitle]="workout.weekDay"
+      *ngFor="let workout of workouts"></app-workout-card>
+  </div>
+</div>

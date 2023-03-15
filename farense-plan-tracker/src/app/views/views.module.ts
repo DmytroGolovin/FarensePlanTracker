@@ -14,10 +14,11 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ExerciseComponent } from './workout/exercise/exercise.component';
 import { FormsModule } from '@angular/forms';
 import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
-import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
+import { ClientResolver } from '../shared/resolvers/client.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 import { PlanComponent } from './plan/plan.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { WorkoutCardComponent } from './plan/workout-card/workout-card.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     NotificationsComponent,
     ExerciseComponent,
     PlanComponent,
+    WorkoutCardComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
   ],
   providers: [
     ExerciseResolver,
-    DashboardResolver,
+    ClientResolver,
     WorkoutResolver
   ]
 })

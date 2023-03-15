@@ -8,7 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ExerciseComponent } from './workout/exercise/exercise.component';
 import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
-import { DashboardResolver } from '../shared/resolvers/dashboard.resolver';
+import { ClientResolver } from '../shared/resolvers/client.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 import { PlanComponent } from './plan/plan.component';
 
@@ -16,20 +16,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    resolve: {
+      clientData: ClientResolver
+    },
     children: [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        resolve: {
-          dashboardData: DashboardResolver
-        },
       },
       {
         path: 'plan',
         component: PlanComponent,
-        // resolve: {
-        //   dashboardData: DashboardResolver
-        // },
       },
       {
         path: 'exercise/:id',

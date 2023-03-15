@@ -8,4 +8,8 @@ import { Apollo } from 'apollo-angular';
 export class PlansService {
 
   constructor(private _apollo: Apollo) { }
+
+  public getUserPlan(userId: string) {
+
+  }
 }

@@ -19,14 +19,14 @@ export class DashboardComponent {
   }
 
   ngOnInit(): void {
-    this._route.data.subscribe((res: any) => {
-      const dashData = res.dashboardData;
+    this._route.parent?.data.subscribe((res: any) => {
+      const clientData = res.clientData;
 
-      if(!dashData || dashData.error){
+      if(!clientData || clientData.error){
        return;
       }
 
-      const currentClient: ClientModel = dashData.data['client'];
+      const currentClient: ClientModel = clientData.data['client'];
 
       const currentDate = new Date();
       const currentWeekDay = DateHelper.getDayOfWeekString(currentDate.getDay());
