@@ -19,6 +19,7 @@ import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 import { PlanComponent } from './plan/plan.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { WorkoutCardComponent } from './plan/workout-card/workout-card.component';
+import { WeightComponent } from './weight/weight.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { WorkoutCardComponent } from './plan/workout-card/workout-card.component
     ExerciseComponent,
     PlanComponent,
     WorkoutCardComponent,
+    WeightComponent,
   ],
   imports: [
     CommonModule,

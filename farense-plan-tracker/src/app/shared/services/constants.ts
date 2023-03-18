@@ -33,6 +33,9 @@ export abstract class Constants {
     nutrition: {
       root: 'app/nutrition'
     },
+    weight: {
+      root: 'app/weight'
+    },
     settings: {
       root: 'app/settings'
     },

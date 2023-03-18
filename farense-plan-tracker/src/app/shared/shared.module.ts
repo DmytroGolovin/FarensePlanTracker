@@ -6,6 +6,7 @@ import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserBarComponent } from './components/user-bar/user-bar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CardComponent,
     FooterComponent,
     UserBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    LineChartComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CardComponent,
     FooterComponent,
     UserBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    LineChartComponent
   ]
 })
 export class SharedModule { }

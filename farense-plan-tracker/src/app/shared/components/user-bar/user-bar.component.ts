@@ -31,19 +31,14 @@ export class UserBarComponent {
         this.isNavMenu = this.navMenus.includes(this._router.url);
         const locationState = _location.getState() as LoactionState;
         this.hasHistory = locationState.navigationId != 1;
-
-        if(this._router.url != this.homeRoute) {
-          this.routeTitle = this._activatedRoute.snapshot?.firstChild?.data['routeTitle']
-        } else {
-          this.routeTitle = undefined;
-        }
+        this.setRouteTitle("");
       }
     });
   }
 
   ngOnInit() {
     this.routeTitleSubscription = this._userBarService.routeTitle$
-      .subscribe(title => this.routeTitle = title);
+        .subscribe(title => this.setRouteTitle(title));
   }
 
   ngOnDestroy() {
@@ -57,6 +52,15 @@ export class UserBarComponent {
 
   public onBackClicked() {
     this._location.back();
+  }
+
+  private setRouteTitle(subscribedTitle: string) {
+    if(this._router.url != this.homeRoute) {
+      const dataRouteTitle = this._activatedRoute.snapshot?.firstChild?.data['routeTitle'];
+      this.routeTitle = dataRouteTitle ? dataRouteTitle : subscribedTitle;
+    } else {
+      this.routeTitle = undefined;
+    }
   }
 }
 

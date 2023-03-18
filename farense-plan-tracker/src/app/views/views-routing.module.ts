@@ -11,6 +11,7 @@ import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
 import { ClientResolver } from '../shared/resolvers/client.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 import { PlanComponent } from './plan/plan.component';
+import { WeightComponent } from './weight/weight.component';
 
 const routes: Routes = [
   {
@@ -43,9 +44,6 @@ const routes: Routes = [
         component: WorkoutComponent,
         resolve: {
           workoutData: WorkoutResolver
-        },
-        data: {
-          routeTitle: 'Workout'
         }
       },
       {
@@ -53,6 +51,13 @@ const routes: Routes = [
         component: NutritionComponent,
         data: {
           routeTitle: 'Nutrition'
+        }
+      },
+      {
+        path: 'weight',
+        component: WeightComponent,
+        data: {
+          routeTitle: 'Weight Track'
         }
       },
       {

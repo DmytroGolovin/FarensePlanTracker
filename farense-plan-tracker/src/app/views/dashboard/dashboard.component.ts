@@ -48,7 +48,7 @@ export class DashboardComponent {
   }
 
   public navigateToWeight(){
-    this.navigateTo(Constants.clientRoutes.exercise.root);
+    this.navigateTo(Constants.clientRoutes.weight.root);
   }
 
   private navigateTo(url: string) {
