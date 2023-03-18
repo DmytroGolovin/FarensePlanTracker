@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import YoutubeHelper from 'src/app/shared/helpers/youtube.helper';
 import { SetModel } from 'src/app/shared/models/entities/set.model';
 import { WorkoutExerciseModel } from 'src/app/shared/models/entities/workout-exercise.model';
-import { UserBarService } from 'src/app/shared/services/helpers/user-bar.service';
+import { UserBarService } from 'src/app/shared/services/utils/user-bar.service';
 
 @Component({
   selector: 'app-exercise',

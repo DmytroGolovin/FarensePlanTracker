@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { UserModel } from '../../models/user.model';
 import { AuthService } from '../../services/auth/auth.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { UserBarService } from '../../services/helpers/user-bar.service';
+import { UserBarService } from '../../services/utils/user-bar.service';
 import { Subscription } from 'rxjs';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WorkoutExerciseModel } from 'src/app/shared/models/entities/workout-exercise.model';
 import { WorkoutModel } from 'src/app/shared/models/entities/workout.model';
-import { UserBarService } from 'src/app/shared/services/helpers/user-bar.service';
+import { UserBarService } from 'src/app/shared/services/utils/user-bar.service';
 
 @Component({
   selector: 'app-workout',

@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserBarComponent } from './components/user-bar/user-bar.component';
-
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { UserBarComponent } from './components/user-bar/user-bar.component';
     NavBarComponent,
     CardComponent,
     FooterComponent,
-    UserBarComponent
+    UserBarComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +24,8 @@ import { UserBarComponent } from './components/user-bar/user-bar.component';
     NavBarComponent,
     CardComponent,
     FooterComponent,
-    UserBarComponent
+    UserBarComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
