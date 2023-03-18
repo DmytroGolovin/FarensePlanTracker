@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import YoutubeHelper from 'src/app/shared/helpers/youtube.helper';
 import { SetModel } from 'src/app/shared/models/entities/set.model';
 import { WorkoutExerciseModel } from 'src/app/shared/models/entities/workout-exercise.model';
+import { UserBarService } from 'src/app/shared/services/helpers/user-bar.service';
 
 @Component({
   selector: 'app-exercise',
@@ -17,7 +17,7 @@ export class ExerciseComponent implements OnInit {
   public currentExercise: WorkoutExerciseModel | undefined = undefined;
   private apiLoaded: boolean = false;
 
-  constructor(private _route: ActivatedRoute, private _sanitizer: DomSanitizer){}
+  constructor(private _route: ActivatedRoute, private _userBarService: UserBarService){}
 
   ngOnInit(): void {
     this._route.data.subscribe( (res: any) => {
@@ -29,6 +29,10 @@ export class ExerciseComponent implements OnInit {
       }
 
       this.currentExercise = exerciseData.data['workoutExercise'];
+
+      if(this.currentExercise?.exercise?.name){
+        this._userBarService.setRouteTitle(this.currentExercise?.exercise?.name);
+      }
     });
 
     if (!this.apiLoaded) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WorkoutExerciseModel } from 'src/app/shared/models/entities/workout-exercise.model';
 import { WorkoutModel } from 'src/app/shared/models/entities/workout.model';
+import { UserBarService } from 'src/app/shared/services/helpers/user-bar.service';
 
 @Component({
   selector: 'app-workout',
@@ -11,7 +12,7 @@ import { WorkoutModel } from 'src/app/shared/models/entities/workout.model';
 export class WorkoutComponent implements OnInit {
   public exercises: Array<WorkoutExerciseModel> = [];
 
-  constructor(private _route: ActivatedRoute){
+  constructor(private _route: ActivatedRoute, private _userBarService: UserBarService){
   }
 
   ngOnInit(): void {
@@ -27,6 +28,8 @@ export class WorkoutComponent implements OnInit {
 
       if(currentWorkout) {
         this.exercises = currentWorkout.workoutExercises;
+
+        this._userBarService.setRouteTitle(currentWorkout.title);
       }
     });
   }

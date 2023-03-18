@@ -27,6 +27,9 @@ const routes: Routes = [
       {
         path: 'plan',
         component: PlanComponent,
+        data: {
+          routeTitle: 'Plan Workouts'
+        }
       },
       {
         path: 'exercise/:id',
@@ -41,18 +44,30 @@ const routes: Routes = [
         resolve: {
           workoutData: WorkoutResolver
         },
+        data: {
+          routeTitle: 'Workout'
+        }
       },
       {
         path: 'nutrition',
         component: NutritionComponent,
+        data: {
+          routeTitle: 'Nutrition'
+        }
       },
       {
         path: 'settings',
         component: SettingsComponent,
+        data: {
+          routeTitle: 'Settings'
+        }
       },
       {
         path: 'notifications',
         component: NotificationsComponent,
+        data: {
+          routeTitle: 'Notifications'
+        }
       },
       { path: '**', redirectTo: 'dashboard' }
     ]

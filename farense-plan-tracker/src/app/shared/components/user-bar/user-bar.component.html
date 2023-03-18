@@ -48,19 +48,29 @@
 
 <div class="fixed flex justify-center top-4 z-10 inset-x-4">
   <div class="max-w-xl flex items-center justify-between w-full gap-2">
-    <div class="p-4 bg-slate-900 rounded-full" *ngIf="!isHome">
+    <div class="p-4 bg-slate-900 rounded-full" *ngIf="!isNavMenu">
       <button (click)="onBackClicked()"
         class="rounded-full w-12 h-12 flex justify-center items-center hover:bg-slate-700">
         <i class="fi fi-rr-angle-left mt-2 mr-1"></i>
       </button>
     </div>
-    <div *ngIf="currentUser"
-      class="flex gap-4 p-4 bg-slate-900 rounded-full items-center transition-all duration-450 ease-in-out w-full">
-      <img class="w-12 h-12 rounded-full" [src]="currentUser.photoURL" alt="Rounded avatar" (click)="toggleNav()">
-      <div class="transition-all duration-450 ease-in-out whitespace-nowrap w-full">
-        <h5 class="text-sm text-gray-400">Hello, {{ currentUser.displayName }}!</h5>
-        <h4 class="font-bold">{{ currentDate | date: 'EEEE, MMMM d' }}</h4>
+    <div class="flex gap-4 p-4 bg-slate-900 rounded-full items-center transition-all duration-450 ease-in-out w-full">
+      <div class="flex gap-4 items-center whitespace-nowrap overflow-hidden" *ngIf="currentUser">
+        <img class="w-12 h-12 rounded-full" [src]="currentUser.photoURL" alt="Rounded avatar" (click)="toggleNav()">
+
+        <div class="transition-all duration-450 ease-in-out whitespace-nowrap w-full overflow-hidden">
+          <div *ngIf="!routeTitle; else showRouteTitle">
+            <h5 class="text-sm text-gray-400 overflow-hidden text-ellipsis">Hello, {{ currentUser.displayName }}!</h5>
+            <h4 class="font-bold overflow-hidden text-ellipsis">{{ currentDate | date: 'EEEE, MMMM d' }}</h4>
+          </div>
+          <ng-template #showRouteTitle>
+            <div class="transition-all duration-450 ease-in-out whitespace-nowrap w-full">
+              <h4 class="font-bold overflow-hidden text-ellipsis">{{ routeTitle }}</h4>
+            </div>
+          </ng-template>
+        </div>
       </div>
+
       <div class="ml-auto relative">
         <a [routerLink]="['notifications']"
           class="rounded-full w-12 h-12 flex justify-center items-center hover:bg-slate-700">

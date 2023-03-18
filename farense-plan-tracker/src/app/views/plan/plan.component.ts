@@ -24,7 +24,6 @@ export class PlanComponent {
       }
 
       const currentClient: ClientModel = clientData.data['client'];
-      console.log(currentClient);
       this.workouts = currentClient?.plan?.workouts;
     });
   }
