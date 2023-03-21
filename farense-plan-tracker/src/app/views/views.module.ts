@@ -20,6 +20,7 @@ import { PlanComponent } from './plan/plan.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { WorkoutCardComponent } from './plan/workout-card/workout-card.component';
 import { WeightComponent } from './weight/weight.component';
+import { WeightInputModalComponent } from './weight/weight-input-modal/weight-input-modal.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { WeightComponent } from './weight/weight.component';
     PlanComponent,
     WorkoutCardComponent,
     WeightComponent,
+    WeightInputModalComponent,
   ],
   imports: [
     CommonModule,

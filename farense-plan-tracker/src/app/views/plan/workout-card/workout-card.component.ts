@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class WorkoutCardComponent {
   @Input() public workoutId: string = "1";
-  @Input() public image: string = "assets/icons/plan.png";
+  @Input() public image: string = "assets/icons/plan.svg";
   @Input() public title: string = "Core exercise";
   @Input() public subtitle: string = "5";
 

@@ -1,14 +1,14 @@
 <div class="flex justify-center py-4">
   <div class="flex flex-col gap-3 w-full">
     <app-card *ngIf="todaysWorkout; else noWorkoutToday" [title]="todaysWorkout.workout.title" category="Workout"
-      image="assets/icons/calendar.png" (onCardClick)="navigateToWorkout()"></app-card>
+      image="assets/icons/calendar.svg" (onCardClick)="navigateToWorkout()"></app-card>
     <ng-template #noWorkoutToday>
-      <app-card title="Today is a rest day!" category="Workout" image="assets/icons/calendar.png"></app-card>
+      <app-card title="Today is a rest day!" category="Workout" image="assets/icons/calendar.svg"></app-card>
     </ng-template>
 
-    <app-card title="Register your calories" category="Diet" image="assets/icons/calories.png"
+    <app-card title="Register your calories" category="Diet" image="assets/icons/calories.svg"
       (onCardClick)="navigateToNutrition()"></app-card>
-    <app-card title="Register your weight" category="Weight" image="assets/icons/weight.png"
+    <app-card title="Register your weight" category="Weight" image="assets/icons/weight.svg"
       (onCardClick)="navigateToWeight()"></app-card>
   </div>
 </div>

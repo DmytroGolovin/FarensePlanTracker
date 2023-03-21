@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserBarComponent } from './components/user-bar/user-bar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { FloatingButtonComponent } from './components/floating-button/floating-button.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
     FooterComponent,
     UserBarComponent,
     SpinnerComponent,
-    LineChartComponent
+    LineChartComponent,
+    FloatingButtonComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
     FooterComponent,
     UserBarComponent,
     SpinnerComponent,
-    LineChartComponent
+    LineChartComponent,
+    FloatingButtonComponent,
   ]
 })
 export class SharedModule { }

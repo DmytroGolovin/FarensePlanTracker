@@ -9,7 +9,7 @@ import { Constants } from 'src/app/shared/services/constants';
 })
 export class ExerciseCardComponent {
   @Input() public exerciseId: string = "1";
-  @Input() public image: string = "assets/icons/dumbbell.png";
+  @Input() public image: string = "assets/icons/dumbbell.svg";
   @Input() public title: string = "Core exercise";
   @Input() public sets: string = "5";
   @Input() public reps: string = "10";

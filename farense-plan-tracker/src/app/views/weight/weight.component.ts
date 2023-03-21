@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { WeightInputModalComponent } from './weight-input-modal/weight-input-modal.component';
 
 @Component({
   selector: 'app-weight',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./weight.component.scss']
 })
 export class WeightComponent {
+  @ViewChild('weightInputModal') weightInputModal: WeightInputModalComponent | any;
 
+  public openWeightModal() {
+    (this.weightInputModal as WeightInputModalComponent).openModal();
+  }
 }

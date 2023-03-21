@@ -1,0 +1,17 @@
+// ::-webkit-datetime-edit-text { color: rgb(142,150,162)}
+// ::-webkit-datetime-edit-month-field { color: rgb(142,150,162); }
+// ::-webkit-datetime-edit-day-field { color: rgb(142,150,162); }
+// ::-webkit-datetime-edit-year-field { color: rgb(142,150,162); }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
