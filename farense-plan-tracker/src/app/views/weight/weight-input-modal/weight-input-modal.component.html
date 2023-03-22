@@ -14,13 +14,16 @@
           </button>
         </div>
         <div class="mt-6">
-          <div class="border-2 border-slate-700 rounded-lg py-2 px-4 focus-within:border-slate-600">
-            <input type="number" class="bg-transparent outline-none w-full" placeholder="Weight (kg)">
+          <div class="border-2 border-slate-700 rounded-lg py-2 px-4 focus-within:border-slate-600 relative">
+            <input type="text" class="bg-transparent outline-none w-full" placeholder="Date"
+              [value]="clientWeight.date.toString()">
+            <input #datePicker type="date" class="absolute opacity-0 left-0 top-0 w-full h-full"
+              [(ngModel)]="clientWeight.date" (change)="test()">
           </div>
 
           <div class="border-2 border-slate-700 rounded-lg mt-2 py-2 px-4 focus-within:border-slate-600">
-            <input type="text" class="bg-transparent outline-none w-full" placeholder="Date"
-              onfocus="(this.type='date')" onblur="(this.type='text')">
+            <input type="number" class="bg-transparent outline-none w-full" placeholder="Weight (kg)"
+              [(ngModel)]="clientWeight.weight">
           </div>
 
           <div class="flex items-center gap-2 mt-6 justify-end">
