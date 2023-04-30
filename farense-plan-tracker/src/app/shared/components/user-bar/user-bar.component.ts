@@ -19,7 +19,7 @@ export class UserBarComponent {
   public isNavMenu: boolean = false;
   public hasHistory: boolean = false;
 
-  private navMenus: Array<string> = ['/app/dashboard', '/app/plan', '/app/nutrition', '/app/settings'];
+  private navMenus: Array<string> = ['/app/dashboard', '/app/plan', '/app/nutrition', '/app/settings', '/app/info'];
   private readonly homeRoute: string = '/app/dashboard';
   private routeTitleSubscription: Subscription | null = null;
 
@@ -38,7 +38,8 @@ export class UserBarComponent {
 
   ngOnInit() {
     this.routeTitleSubscription = this._userBarService.routeTitle$
-        .subscribe(title => this.setRouteTitle(title));
+      .subscribe(title => this.setRouteTitle(title));
+    this.isNavMenu = this.navMenus.includes(this._router.url);
   }
 
   ngOnDestroy() {
@@ -52,6 +53,10 @@ export class UserBarComponent {
 
   public onBackClicked() {
     this._location.back();
+  }
+
+  public onSignOut(){
+    this._authService.singOut();
   }
 
   private setRouteTitle(subscribedTitle: string) {

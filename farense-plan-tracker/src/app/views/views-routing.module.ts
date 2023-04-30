@@ -12,6 +12,7 @@ import { ClientResolver } from '../shared/resolvers/client.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 import { PlanComponent } from './plan/plan.component';
 import { WeightComponent } from './weight/weight.component';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
   {
@@ -46,20 +47,20 @@ const routes: Routes = [
           workoutData: WorkoutResolver
         }
       },
-      {
-        path: 'nutrition',
-        component: NutritionComponent,
-        data: {
-          routeTitle: 'Nutrition'
-        }
-      },
-      {
-        path: 'weight',
-        component: WeightComponent,
-        data: {
-          routeTitle: 'Weight Track'
-        }
-      },
+      // {
+      //   path: 'nutrition',
+      //   component: NutritionComponent,
+      //   data: {
+      //     routeTitle: 'Nutrition'
+      //   }
+      // },
+      // {
+      //   path: 'weight',
+      //   component: WeightComponent,
+      //   data: {
+      //     routeTitle: 'Weight Track'
+      //   }
+      // },
       {
         path: 'settings',
         component: SettingsComponent,
@@ -67,11 +68,18 @@ const routes: Routes = [
           routeTitle: 'Settings'
         }
       },
+      // {
+      //   path: 'notifications',
+      //   component: NotificationsComponent,
+      //   data: {
+      //     routeTitle: 'Notifications'
+      //   }
+      // },
       {
-        path: 'notifications',
-        component: NotificationsComponent,
+        path: 'info',
+        component: InfoComponent,
         data: {
-          routeTitle: 'Notifications'
+          routeTitle: 'Information'
         }
       },
       { path: '**', redirectTo: 'dashboard' }

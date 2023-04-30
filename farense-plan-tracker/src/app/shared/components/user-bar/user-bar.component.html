@@ -72,11 +72,15 @@
       </div>
 
       <div class="ml-auto relative">
-        <a [routerLink]="['notifications']"
+        <!-- <a [routerLink]="['notifications']"
           class="rounded-full w-12 h-12 flex justify-center items-center hover:bg-slate-700">
           <i class="fi fi-rr-bell"></i>
         </a>
-        <span class="absolute bg-red-500 w-2 h-2 rounded-full top-3 right-3.5"></span>
+        <span class="absolute bg-red-500 w-2 h-2 rounded-full top-3 right-3.5"></span> -->
+        <button class="rounded-full w-12 h-12 flex justify-center items-center hover:bg-slate-700"
+          (click)="onSignOut()">
+          <i class="fi fi-rr-exit mt-1"></i>
+        </button>
       </div>
     </div>
   </div>

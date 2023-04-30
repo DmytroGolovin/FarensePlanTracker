@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { Router } from '@angular/router';
 import { UserModel } from '../../models/user.model';
+import { AuthResultModel } from '../../models/firebase/auth-result.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,46 +11,71 @@ import { UserModel } from '../../models/user.model';
 export class AuthService {
   private signInRedirectUrl: string = "app";
   private signOutRedirectUrl: string = "auth/sign-in";
+  private signInSuccessMsg: string = "Success! You are signed in!";
 
   constructor(private _fireAuth: AngularFireAuth, private _router: Router) { }
 
-  public async singInWithEmail(email: string, password: string, redirectUrl: string = this.signInRedirectUrl) {
+  public async singInWithEmail(email: string, password: string, redirectUrl: string = this.signInRedirectUrl): Promise<AuthResultModel<string>> {
     return await this._fireAuth.signInWithEmailAndPassword(email, password).then(res => {
       this.setLoggedInUser(res.user);
       this._router.navigate([redirectUrl]);
-      return "Success";
+      return {
+        data: this.signInSuccessMsg,
+        isSuccess: true
+      };
     }).catch(error => {
-      return error.message;
+      return {
+        data: error.message,
+        isSuccess: false
+      };
     });
   }
 
-  public signInWithGoogle(redirectUrl: string = this.signInRedirectUrl){
+  public signInWithGoogle(redirectUrl: string = this.signInRedirectUrl) : Promise<AuthResultModel<string>> {
     return this._fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
       this.setLoggedInUser(res.user);
       this._router.navigate([redirectUrl]);
-      return "Success";
+      return {
+        data: this.signInSuccessMsg,
+        isSuccess: true
+      };
     }).catch(error => {
-      return error.message;
+      return {
+        data: error.message,
+        isSuccess: false
+      };
     });
   }
 
-  public signInWithFacebook(redirectUrl: string = this.signInRedirectUrl){
+  public signInWithFacebook(redirectUrl: string = this.signInRedirectUrl): Promise<AuthResultModel<string>> {
     return this._fireAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res => {
       this.setLoggedInUser(res.user);
       this._router.navigate([redirectUrl]);
-      return "Success";
+      return {
+        data: this.signInSuccessMsg,
+        isSuccess: true
+      };
     }).catch(error => {
-      return error.message;
+      return {
+        data: error.message,
+        isSuccess: false
+      };
     });
   }
 
-  public singOut(redirectUrl: string = this.signOutRedirectUrl){
+  public singOut(redirectUrl: string = this.signOutRedirectUrl): Promise<AuthResultModel<string>> {
     localStorage.removeItem('currentUser');
     return this._fireAuth.signOut().then(res => {
       this._router.navigate([redirectUrl]);
-      return "Success";
+      return {
+        data: this.signInSuccessMsg,
+        isSuccess: true
+      };
     }).catch(error => {
-      return error.message;
+      return {
+        data: error.message,
+        isSuccess: false
+      };
     });
   }
 
