@@ -7,6 +7,7 @@ export interface WorkoutExerciseModel {
   reps: string;
   load: string;
   restTime: string;
+  isSuperSet: boolean;
   notes?: string;
   exercise: ExerciseModel;
 }

@@ -13,6 +13,7 @@ export class ExerciseCardComponent {
   @Input() public title: string = "Core exercise";
   @Input() public sets: string = "5";
   @Input() public reps: string = "10";
+  @Input() public isSuperSet: boolean = false;
 
   constructor(private _router: Router) {}
 

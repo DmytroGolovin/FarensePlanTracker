@@ -1,4 +1,12 @@
-<div class="flex items-center bg-slate-800 rounded-lg px-3 cursor-pointer" (click)="navigateToExercise()">
+<div class="flex items-center bg-slate-800 rounded-lg px-3 cursor-pointer relative" (click)="navigateToExercise()"
+  [ngStyle]="{ 'margin-top': isSuperSet ? '-8px' : '0' }">
+  <div class="absolute flex items-center justify-center whitespace-nowrap top-0 w-full" *ngIf="isSuperSet"
+    style="top: -16px; margin-left: -12px;">
+    <div class="rounded-full flex items-center justify-center p-2 h-8 w-8 bg-slate-800">
+      <!-- <i class="fi fi-rr-lock"></i> -->
+      <i class="fi fi-rr-link-alt"></i>
+    </div>
+  </div>
   <div class="w-1/4">
     <img [src]="image" [alt]="title">
   </div>
@@ -13,3 +21,26 @@
     <i class="fi fi-rr-angle-right"></i>
   </div>
 </div>
+
+<!-- <div class="flex items-center bg-slate-800 rounded-lg px-3 cursor-pointer relative" (click)="navigateToExercise()"
+  [ngClass]="{'mt-8' : isSuperSet}">
+  <div class="absolute bg-slate-800 flex justify-center items-center whitespace-nowrap"
+    style="height: 44px; width: 6px; top: -44px; right: 50%;" *ngIf="isSuperSet">
+    <div class="rounded-full flex items-center justify-center p-2 h-8 w-8 bg-slate-800">
+      <i class="fi fi-rr-lock"></i>
+    </div>
+  </div>
+  <div class="w-1/4">
+    <img [src]="image" [alt]="title">
+  </div>
+  <div class="px-2">
+    <h5 class="font-bold text-lg">{{ title }}</h5>
+    <div class="flex gap-2 items-center text-gray-400 text-sm">
+      <p>{{ sets }} Sets</p>
+      <p>{{ reps }} Reps</p>
+    </div>
+  </div>
+  <div class="text-gray-400 ml-auto">
+    <i class="fi fi-rr-angle-right"></i>
+  </div>
+</div> -->

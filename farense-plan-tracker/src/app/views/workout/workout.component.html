@@ -1,6 +1,6 @@
 <div class="flex justify-center">
-  <div class="flex flex-col gap-3 w-full max-w-xl" *ngIf="exercises.length > 0">
+  <div class="flex flex-col gap-4 w-full max-w-xl" *ngIf="exercises.length > 0">
     <app-exercise-card [exerciseId]="exercise.id" [title]="exercise.exercise.name" [sets]="exercise.sets"
-      [reps]="exercise.reps" *ngFor="let exercise of exercises"></app-exercise-card>
+      [reps]="exercise.reps" [isSuperSet]="exercise.isSuperSet" *ngFor="let exercise of exercises"></app-exercise-card>
   </div>
 </div>

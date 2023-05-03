@@ -22,6 +22,7 @@ query getWorkoutExercisesById($workoutId: ID!){
       sets
       reps
       restTime
+      isSuperSet
       exercise {
         name
       }
