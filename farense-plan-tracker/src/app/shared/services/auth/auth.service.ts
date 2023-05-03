@@ -31,6 +31,22 @@ export class AuthService {
     });
   }
 
+  public async singUpWithEmail(email: string, password: string, redirectUrl: string = this.signInRedirectUrl): Promise<AuthResultModel<string>> {
+    return await this._fireAuth.createUserWithEmailAndPassword(email, password).then(res => {
+      this.setLoggedInUser(res.user);
+      this._router.navigate([redirectUrl]);
+      return {
+        data: this.signInSuccessMsg,
+        isSuccess: true
+      };
+    }).catch(error => {
+      return {
+        data: error.message,
+        isSuccess: false
+      };
+    });
+  }
+
   public signInWithGoogle(redirectUrl: string = this.signInRedirectUrl) : Promise<AuthResultModel<string>> {
     return this._fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
       this.setLoggedInUser(res.user);
