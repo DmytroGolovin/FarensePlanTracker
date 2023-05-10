@@ -2,8 +2,8 @@
   <h5 class="font-bold">{{ plan?.name | uppercase }}</h5>
 </div>
 
-<div class="w-full h-48" *ngIf="apiLoaded && getVideoId()">
-  <youtube-player [videoId]="getVideoId()" class="w-full h-full rounded-lg"></youtube-player>
+<div class="w-full h-48" *ngIf="plan">
+  <app-video-renderer [videoUrl]="plan.videoUrl" class="w-full h-full"></app-video-renderer>
 </div>
 
 <div class="py-3" *ngIf="plan?.description">

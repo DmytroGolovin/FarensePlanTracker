@@ -17,7 +17,6 @@ import { ExerciseResolver } from '../shared/resolvers/exercise.resolver';
 import { ClientResolver } from '../shared/resolvers/client.resolver';
 import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 import { PlanComponent } from './plan/plan.component';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 import { WorkoutCardComponent } from './plan/workout-card/workout-card.component';
 import { WeightComponent } from './weight/weight.component';
 import { WeightInputModalComponent } from './weight/weight-input-modal/weight-input-modal.component';
@@ -50,8 +49,7 @@ import { PlanWorkoutsComponent } from './plan/plan-workouts/plan-workouts.compon
     ViewsRoutingModule,
     SharedModule,
     RouterModule,
-    FormsModule,
-    YouTubePlayerModule
+    FormsModule
   ],
   providers: [
     ExerciseResolver,

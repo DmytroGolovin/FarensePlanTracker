@@ -2,8 +2,8 @@
   <h5 class="font-bold">{{ currentExercise?.exercise?.name | uppercase }}</h5>
 </div>
 
-<div class="w-full h-48" *ngIf="apiLoaded && getVideoId()">
-  <youtube-player [videoId]="getVideoId()" class="w-full h-full rounded-lg"></youtube-player>
+<div class="w-full h-48" *ngIf="currentExercise">
+  <app-video-renderer [videoUrl]="currentExercise.exercise.videoUrl" class="w-full h-full"></app-video-renderer>
 </div>
 
 <div class="flex py-4 justify-between">

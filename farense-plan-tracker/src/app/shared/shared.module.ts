@@ -8,6 +8,8 @@ import { UserBarComponent } from './components/user-bar/user-bar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { FloatingButtonComponent } from './components/floating-button/floating-button.component';
+import { VideoRendererComponent } from './components/video-renderer/video-renderer.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 @NgModule({
@@ -18,11 +20,13 @@ import { FloatingButtonComponent } from './components/floating-button/floating-b
     UserBarComponent,
     SpinnerComponent,
     LineChartComponent,
-    FloatingButtonComponent
+    FloatingButtonComponent,
+    VideoRendererComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    YouTubePlayerModule
   ],
   exports: [
     NavBarComponent,
@@ -32,6 +36,7 @@ import { FloatingButtonComponent } from './components/floating-button/floating-b
     SpinnerComponent,
     LineChartComponent,
     FloatingButtonComponent,
+    VideoRendererComponent
   ]
 })
 export class SharedModule { }
