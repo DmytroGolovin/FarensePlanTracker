@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ClientModel } from 'src/app/shared/models/entities/client.model';
+import { Router } from '@angular/router';
 import { PlanWorkoutModel } from 'src/app/shared/models/entities/plan-workout.model';
-import { WorkoutModel } from 'src/app/shared/models/entities/workout.model';
+import { Constants } from 'src/app/shared/services/constants';
 
 @Component({
   selector: 'app-plan',
@@ -12,19 +11,21 @@ import { WorkoutModel } from 'src/app/shared/models/entities/workout.model';
 export class PlanComponent {
   public workouts: Array<PlanWorkoutModel> | undefined = [];
 
-  constructor(private _route: ActivatedRoute){
+  constructor(private _router: Router,){
   }
 
   ngOnInit(): void {
-    this._route.parent?.data.subscribe((res: any) => {
-      const clientData = res.clientData;
+  }
 
-      if(!clientData || clientData.error){
-       return;
-      }
+  public navigateToPlanOverview(){
+    this.navigateTo(Constants.clientRoutes.plan.overview);
+  }
 
-      const currentClient: ClientModel = clientData.data['client'];
-      this.workouts = currentClient?.plan?.workouts;
-    });
+  public navigateToPlanWorkouts(){
+    this.navigateTo(Constants.clientRoutes.plan.workouts);
+  }
+
+  private navigateTo(url: string) {
+    this._router.navigateByUrl(url);
   }
 }

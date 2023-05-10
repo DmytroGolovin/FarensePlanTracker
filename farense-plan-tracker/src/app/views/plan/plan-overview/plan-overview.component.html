@@ -1,0 +1,17 @@
+<div class="py-3">
+  <h5 class="font-bold">{{ plan?.name | uppercase }}</h5>
+</div>
+
+<div class="w-full h-48" *ngIf="apiLoaded && getVideoId()">
+  <youtube-player [videoId]="getVideoId()" class="w-full h-full rounded-lg"></youtube-player>
+</div>
+
+<div class="py-3" *ngIf="plan?.description">
+  <h5 class="font-bold">{{ 'Description' | uppercase }}</h5>
+  <p class="mt-2">{{ plan?.description }}</p>
+</div>
+
+<div class="py-3" *ngIf="plan?.objectives">
+  <h5 class="font-bold">{{ 'Objectives' | uppercase }}</h5>
+  <p class="mt-2">{{ plan?.objectives }}</p>
+</div>

@@ -1,6 +1,8 @@
-<div class="flex justify-center">
-  <div class="flex flex-col gap-3 w-full max-w-xl" *ngIf="workouts && workouts.length > 0">
-    <app-workout-card [workoutId]="workout.workout.id" [title]="workout.workout.title" [subtitle]="workout.weekDay"
-      *ngFor="let workout of workouts"></app-workout-card>
+<div class="flex justify-center py-4">
+  <div class="flex flex-col gap-3 w-full">
+    <app-card title="Overview" category="Plan" image="assets/icons/plan.svg"
+      (onCardClick)="navigateToPlanOverview()"></app-card>
+    <app-card title="Workouts" category="Plan" image="assets/icons/dumbbell.svg"
+      (onCardClick)="navigateToPlanWorkouts()"></app-card>
   </div>
 </div>

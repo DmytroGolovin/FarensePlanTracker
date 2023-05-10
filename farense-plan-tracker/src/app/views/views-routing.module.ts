@@ -13,6 +13,8 @@ import { WorkoutResolver } from '../shared/resolvers/workout.resolver';
 import { PlanComponent } from './plan/plan.component';
 import { WeightComponent } from './weight/weight.component';
 import { InfoComponent } from './info/info.component';
+import { PlanOverviewComponent } from './plan/plan-overview/plan-overview.component';
+import { PlanWorkoutsComponent } from './plan/plan-workouts/plan-workouts.component';
 
 const routes: Routes = [
   {
@@ -28,10 +30,20 @@ const routes: Routes = [
       },
       {
         path: 'plan',
-        component: PlanComponent,
-        data: {
-          routeTitle: 'Plan Workouts'
-        }
+        children: [
+          {
+            path: 'overview',
+            component: PlanOverviewComponent
+          },
+          {
+            path: 'workouts',
+            component: PlanWorkoutsComponent,
+            data: {
+              routeTitle: 'Plan Workouts'
+            },
+          },
+          { path: '**', redirectTo: 'overview' }
+        ]
       },
       {
         path: 'exercise/:id',

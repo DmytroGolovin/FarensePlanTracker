@@ -1,5 +1,7 @@
 <div class="flex justify-center py-4">
   <div class="flex flex-col gap-3 w-full">
+    <app-card [title]="clientsPlan ? clientsPlan.name : 'Plan overview'" category="Plan overview"
+      image="assets/icons/plan.svg" (onCardClick)="navigateToPlanOverview()"></app-card>
     <app-card *ngIf="todaysWorkout; else noWorkoutToday" [title]="todaysWorkout.workout.title" category="Workout"
       image="assets/icons/calendar.svg" (onCardClick)="navigateToWorkout()"></app-card>
     <ng-template #noWorkoutToday>

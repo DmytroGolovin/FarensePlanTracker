@@ -8,6 +8,10 @@ query getClientByEmail($userEmail: String!){
   ) {
     name
     plan {
+      name
+      description
+      objectives
+      videoUrl
       workouts {
         weekDay
         workout {

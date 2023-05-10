@@ -33,6 +33,11 @@ export abstract class Constants {
     nutrition: {
       root: 'app/nutrition'
     },
+    plan: {
+      root: 'app/plan',
+      overview: 'app/plan/overview',
+      workouts: 'app/plan/workouts'
+    },
     weight: {
       root: 'app/weight'
     },

@@ -5,6 +5,7 @@ export interface PlanModel {
   name: string;
   description?: string;
   objectives?: string;
+  videoUrl?: string;
   startDate: Date;
   endDate: Date;
   workouts: Array<PlanWorkoutModel>;

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import DateHelper from 'src/app/shared/helpers/date.helper';
 import { ClientModel } from 'src/app/shared/models/entities/client.model';
 import { PlanWorkoutModel } from 'src/app/shared/models/entities/plan-workout.model';
+import { PlanModel } from 'src/app/shared/models/entities/plan.model';
 import { WorkoutModel } from 'src/app/shared/models/entities/workout.model';
 import { UserModel } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
@@ -14,7 +15,8 @@ import { Constants } from 'src/app/shared/services/constants';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  public todaysWorkout: PlanWorkoutModel | undefined = undefined;
+  public todaysWorkout: PlanWorkoutModel | undefined;
+  public clientsPlan: PlanModel | undefined;
   constructor(private _router: Router, private _route: ActivatedRoute){
   }
 
@@ -32,6 +34,7 @@ export class DashboardComponent {
       const currentWeekDay = DateHelper.getDayOfWeekString(currentDate.getDay());
 
       this.todaysWorkout = currentClient?.plan?.workouts.find(x => x.weekDay == currentWeekDay);
+      this.clientsPlan = currentClient?.plan;
     });
   }
 
@@ -49,6 +52,10 @@ export class DashboardComponent {
 
   public navigateToWeight(){
     this.navigateTo(Constants.clientRoutes.weight.root);
+  }
+
+  public navigateToPlanOverview(){
+    this.navigateTo(Constants.clientRoutes.plan.overview);
   }
 
   private navigateTo(url: string) {

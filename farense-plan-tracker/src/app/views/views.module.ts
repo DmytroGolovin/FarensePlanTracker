@@ -23,6 +23,8 @@ import { WeightComponent } from './weight/weight.component';
 import { WeightInputModalComponent } from './weight/weight-input-modal/weight-input-modal.component';
 import { NoClientComponent } from './no-client/no-client.component';
 import { InfoComponent } from './info/info.component';
+import { PlanOverviewComponent } from './plan/plan-overview/plan-overview.component';
+import { PlanWorkoutsComponent } from './plan/plan-workouts/plan-workouts.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { InfoComponent } from './info/info.component';
     WeightInputModalComponent,
     NoClientComponent,
     InfoComponent,
+    PlanOverviewComponent,
+    PlanWorkoutsComponent,
   ],
   imports: [
     CommonModule,

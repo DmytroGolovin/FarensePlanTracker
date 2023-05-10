@@ -2,7 +2,7 @@
   <h5 class="font-bold">{{ currentExercise?.exercise?.name | uppercase }}</h5>
 </div>
 
-<div class="w-full h-48" *ngIf="getVideoId()">
+<div class="w-full h-48" *ngIf="apiLoaded && getVideoId()">
   <youtube-player [videoId]="getVideoId()" class="w-full h-full rounded-lg"></youtube-player>
 </div>
 

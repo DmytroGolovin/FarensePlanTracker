@@ -15,7 +15,7 @@ export class ExerciseComponent implements OnInit {
     order: 0
   }];
   public currentExercise: WorkoutExerciseModel | undefined = undefined;
-  private apiLoaded: boolean = false;
+  public apiLoaded: boolean = false;
 
   constructor(private _route: ActivatedRoute, private _userBarService: UserBarService){}
 
